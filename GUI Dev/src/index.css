@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "../styles/global.css";
+
+/* Easter-egg motion — used only by the heat/cold overlays */
+@keyframes tdh-float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(24deg);
+    opacity: 0;
+  }
+}
+
+@keyframes tdh-wiggle {
+  0%,
+  100% {
+    transform: rotate(-2deg) scale(1);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.03);
+  }
+}
+
+@keyframes tdh-drift {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(110vh) translateX(40px);
+    opacity: 0;
+  }
+}
+
+.tdh-ember {
+  position: fixed;
+  bottom: -40px;
+  animation: tdh-float-up linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 50;
+}
+
+.tdh-flake {
+  position: fixed;
+  top: -40px;
+  animation: tdh-drift linear infinite;
+  pointer-events: none;
+  user-select: none;
+  z-index: 50;
+}
+
+.tdh-wiggle {
+  animation: tdh-wiggle 0.45s ease-in-out infinite;
+  display: inline-block;
+}
